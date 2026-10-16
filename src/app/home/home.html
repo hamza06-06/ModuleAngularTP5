@@ -1,0 +1,27 @@
+<div class="container color-dark">
+  <div class="col">
+    <p>Un élément de liste</p>
+  </div>
+  <div class="col">
+    <p>Ma liste d'éléments ({{ nbItems }})</p>
+  </div>
+</div>
+
+<div class="container color-light">
+  <div class="col">
+    <p class="sm">Un nouvel élément de liste</p>
+  </div>
+  <div class="col">
+    @for (objectif of objectifs; track objectif) {
+      <div (click)="ouvrirActivite($index)"
+           style="cursor: pointer">
+       {{ objectif }}
+      </div>
+    }
+  </div>
+  <div class="col">
+    <input type="text" class="txt" name="jsp" placeholder="..." [(ngModel)]="objectifText"> <!-- màj la var 'objectifText' -->
+    <p>{{ objectifText }}</p>                                                               <!-- affiche la var 'objectifText' -->
+    <input type="submit" class="btn" name="tkt" [value]="btnText" (click)="ajoutItem()">
+  </div>
+</div>
