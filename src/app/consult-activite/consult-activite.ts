@@ -15,6 +15,11 @@ export class ConsultActivite {
   titreActivite: string = '';
   editionEnCours: boolean = false;
   nouveauTitre: string = '';
+  
+retourAccueil(): void {
+  this.router.navigate(['/']);
+}
+
 
    constructor(private route: ActivatedRoute,
     private activiteService: ActiviteService,

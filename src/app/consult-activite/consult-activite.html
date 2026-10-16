@@ -1,33 +1,46 @@
-<p>consult-activite works!</p>
-<h3>Test récupération des paramètres :</h3>
 
 <h3>Détail de l'activité</h3>
 
 @if (!editionEnCours) {
   <p>Activité sélectionnée : {{ titreActivite }}</p>
-  <button type="button" (click)="modifierTitre()">
-    Modifier
-  </button>
 } @else {
   <p>Modifier le titre :</p>
-  <input type="text" [(ngModel)]="nouveauTitre">
 
-  <button type="button" (click)="enregistrerTitre()">
-    Enregistrer
-  </button>
+  <input
+    type="text"
+    [(ngModel)]="nouveauTitre"
+    class="champ-titre"
+  >
 }
 
+<div class="actions">
+  <button
+    type="button"
+    class="btn btn-supprimer"
+    (click)="supprimeElem()">
+    Supprimer
+  </button>
 
-<ul>
-  <li>Paramètre 1 transmis : {{ id }}</li>
-   <li>
-    @if (id2) {
-      Paramètre 2 transmis : {{ id2 }}
-    }
-   </li>
-</ul>
+  @if (!editionEnCours) {
+    <button
+      type="button"
+      class="btn btn-modifier"
+      (click)="modifierTitre()">
+      Modifier
+    </button>
 
-
-<button type="button" (click)="supprimeElem()">
-  Supprimer
-</button>
+    <button
+      type="button"
+      class="btn btn-retour"
+      (click)="retourAccueil()">
+      Retour
+    </button>
+  } @else {
+    <button
+      type="button"
+      class="btn btn-modifier"
+      (click)="enregistrerTitre()">
+      Sauvegarder
+    </button>
+  }
+</div>
